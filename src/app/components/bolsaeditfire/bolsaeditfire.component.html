@@ -1,0 +1,94 @@
+<h3>Bolsa {{bolsa.nombre}}</h3>
+
+<button class="btn btn-outline-danger"
+        [routerLink]="['/bolsas']">
+      Regresar
+      </button>
+
+<button
+      (click)="agregarNuevo(forma)"
+      class="btn btn-outline-success">
+    Nuevo
+    </button>
+
+<hr>
+
+<div class="row animated fadeIn fast">
+
+  <div class="col-md-4">
+
+    <form (ngSubmit)="guardar()" #forma="ngForm">
+      <div>
+        <label>Nombre</label>
+        <input type="text" 
+        [(ngModel)]="bolsa.nombre"
+        name="nombre"
+        class="form-control"
+        placeholder="Nombre de la bolsa">
+      </div>
+
+      <div>
+
+        <label>Descripcion</label>
+        <textarea type="textarea" 
+        [(ngModel)]="bolsa.descripcion"
+                name="descripcion"
+               class="form-control"
+               required>
+        </textarea>
+
+      </div>
+
+      <div>
+          <label>Foto</label>
+          <input type="text"
+          id="file"
+          class="form-control"
+          [(ngModel)]="bolsa.img"
+          name="img"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+
+        <button [disabled]="!forma.valid"
+                class="btn btn-outline-primary" type="button" (click)=guardar()>
+          Guardar cambios
+        </button>
+
+      </div>
+    </form>
+    
+  </div>
+  <!-- Este componente tiene un evento 'sended' que llama otro metodo cuando se ejecute ese vcento -->
+
+</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-images (sended)="addImagen($event)"></app-images>
+
+        <div class="clearfix"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

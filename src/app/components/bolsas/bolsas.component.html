@@ -1,0 +1,23 @@
+<h1>Bolsas</h1>
+<hr>
+<div class="card-columns" >
+
+    <div class="card animated fadeIn fast" *ngFor="let k of bolsas | keys let i = index">
+        <img class="card-img-top" [src]="bolsas[k].img" [alt]="bolsas[k].nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{bolsas[k].nombre}}</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+          <button 
+              (click)="VerBolsa(k)"
+              type="button" 
+              class="btn btn-outline-primary btn-block">
+            Ver Mas...
+          </button>
+
+          <!-- <a [routerLink]="['/bolsa',i]" class="btn btn-outline-primary">Ver mas link..</a> -->
+        </div>
+      </div>
+
+</div>

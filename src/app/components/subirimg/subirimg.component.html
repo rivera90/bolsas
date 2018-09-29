@@ -1,0 +1,21 @@
+<form action="" (ngSubmit)="subirimg()" >
+    <div class="col-md-6" style=" margin-left: 40px" >
+        <label>Imagen</label>
+        
+       <div>
+          <label for="file">Choose File</label>
+          <input type="file"
+                 id="file"
+                 class="form-control"
+                 (change)="handleFileInput($event.target.files)">
+       </div>
+          
+    
+        <div class="main-container">
+            <button 
+            class="btn btn-outline-warning" type="submit">
+              subir imagen
+            </button>
+        </div>
+    </div>
+</form>
